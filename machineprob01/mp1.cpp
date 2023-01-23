@@ -45,4 +45,5 @@ int main()
     cout << "\nThe area of the lawn to mow is " << lawn_area << " square feet." << endl;
     cout << "You can mow " << amount_mowed << " square feet per minute." << endl;
     cout << "It will take " << mowing_time << " minutes to mow the lawn." << endl;
+    cout << "Thank you for using this app" << endl;
 }
