@@ -4,21 +4,22 @@
  * @1.12.2023
  * CPS 171-01 Machine Problem 01
  */
+#include <ios>
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    double lawn_length;      // measured in ft
-    double lawn_width;       // measured in ft
-    double lawn_area;        // measured in ft
-    double house_length;     // measured in ft
-    double house_width;      // measured in ft
-    double mowing_speed;     // measured in fpm
-    double amount_mowed;     // measured in sq. fpm
-    double blade_width = 18; // measured in inches
-    double walking_speed;    // measured in mph
-    double mowing_time;      // measured in minutes
+    float lawn_length;      // measured in ft
+    float lawn_width;       // measured in ft
+    float lawn_area;        // measured in ft
+    float house_length;     // measured in ft
+    float house_width;      // measured in ft
+    float mowing_speed;     // measured in fpm
+    float amount_mowed;     // measured in sq. fpm
+    float blade_width = 18; // measured in inches
+    float walking_speed;    // measured in mph
+    float mowing_time;      // measured in minutes
 
     /*Receiving dimensions by entering input*/
     cout << "Enter the length of the lawn in feet: ";
