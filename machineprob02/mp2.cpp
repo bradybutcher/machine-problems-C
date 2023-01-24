@@ -49,7 +49,7 @@ int main()
   getline(inputFile, tempStr);
   numberOfCars = stoi(tempStr);
   getline(inputFile, tempStr);
-  current_price = stoi(tempStr);
+  current_price = stof(tempStr);
 
   /* Calculations */
   totalWeightOfCoal = numberOfCars * singleCarWeight;
@@ -57,4 +57,6 @@ int main()
   total_surcharge = valueOfShipment * current_surcharge;
 
   outputFile << "KERBAA & M COAL TRAIN REPORT - " << username << endl;
+  outputFile << "\nRailroad Name: " << railroad_name << endl;
+  outputFile << "Destination: " << destination << endl; 
 }
