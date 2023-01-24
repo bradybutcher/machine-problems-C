@@ -1,6 +1,7 @@
-#include <iostream>
-#include <fstream>
-#include <string>
+#include <iostream> // I/O (cin and cout)
+#include <iomanip> // manipulators
+#include <fstream> // file streams
+#include <string> 
 using namespace std;
 
 int main()
@@ -59,4 +60,13 @@ int main()
   outputFile << "KERBAA & M COAL TRAIN REPORT - " << username << endl;
   outputFile << "\nRailroad Name: " << railroad_name << endl;
   outputFile << "Destination: " << destination << endl; 
+  outputFile << "\nNumber of Ore Cars: " << numberOfCars << endl;
+  outputFile << "Total Weight of Coal: " << totalWeightOfCoal << " short tons" << endl;
+  outputFile << "Current Cost per Short Ton: $" << current_price << endl;
+  outputFile << "Total Value of Shipment: $" << valueOfShipment << "%" << endl;
+  outputFile << "Current Surcharge: " << (current_surcharge * 100) << endl;
+  outputFile << "\nTotal Surcharge (Est): $" << total_surcharge << endl;
+
+  inputFile.close();
+  outputFile.close();
 }
