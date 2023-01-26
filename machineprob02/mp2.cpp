@@ -24,8 +24,8 @@ int main()
    */
 
   /* Variable Declarations */
-  string ifile_path = "~/Developer/C++/machine-problems-C/machineprob02/input.txt";
-  string ofile_path = "~/Developer/C++/machine-problems-C/machineprob02/output.txt";
+  string ifile_path = "input.txt";
+  string ofile_path = "output.txt";
 
   ifstream inputFile;
   ofstream outputFile;
@@ -43,7 +43,15 @@ int main()
   double valueOfShipment;           // USD
 
   inputFile.open(ifile_path);
+  if( !inputFile ) { // file couldn't be opened
+    std::cerr << "Error: Input file could not be opened" << endl;
+      exit(1);
+   }
   outputFile.open(ofile_path);
+  if( !outputFile ) { // file couldn't be opened
+    std::cerr << "Error: Output file could not be opened" << endl;
+      exit(1);
+   }
 
   getline(inputFile, railroad_name);
   getline(inputFile, destination);
@@ -63,8 +71,8 @@ int main()
   outputFile << "\nNumber of Ore Cars: " << numberOfCars << endl;
   outputFile << "Total Weight of Coal: " << totalWeightOfCoal << " short tons" << endl;
   outputFile << "Current Cost per Short Ton: $" << current_price << endl;
-  outputFile << "Total Value of Shipment: $" << valueOfShipment << "%" << endl;
-  outputFile << "Current Surcharge: " << (current_surcharge * 100) << endl;
+  outputFile << "Total Value of Shipment: $" << valueOfShipment << endl;
+  outputFile << "Current Surcharge: " << (current_surcharge * 100) << "%" << endl;
   outputFile << "\nTotal Surcharge (Est): $" << total_surcharge << endl;
 
   inputFile.close();
