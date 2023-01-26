@@ -3,10 +3,10 @@ KERBAA & M COAL TRAIN REPORT - Brady Butcher
 Railroad Name: Ironton and Tylerville
 Destination: Flint Edison #4
 
-Number of Ore Cars: 87
-Total Weight of Coal: 6481.5 short tons
-Current Cost per Short Ton: $65.47
-Total Value of Shipment: $424344
-Current Surcharge: 0.31%
+Number of Ore Cars: ........................87
+Total Weight of Coal: .......................6481.50 short tons
+Current Cost per Short Ton: .................$65.47
+Total Value of Shipment: ....................$424343.81
+Current Surcharge: ..........................0.31%
 
-Total Surcharge (Est): $1315.47
+Total Surcharge (Est): .....................$1315.47

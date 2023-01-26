@@ -1,3 +1,4 @@
+#include <ios>
 #include <iostream> // I/O (cin and cout)
 #include <iomanip>  // manipulators
 #include <fstream>  // file streams
@@ -34,6 +35,7 @@ int main()
   string railroad_name;
   string destination;
   string tempStr;
+  int W;
   int numberOfCars;
   float singleCarWeight = 74.5;     // measured in tons
   float totalWeightOfCoal;          // measured in short tons
@@ -42,6 +44,7 @@ int main()
   float total_surcharge;            // USD
   double valueOfShipment;           // USD
 
+  /* Opens source files and does an error check to ensure files can be opened */
   inputFile.open(ifile_path);
   if( !inputFile ) { // file couldn't be opened
     std::cerr << "Error: Input file could not be opened" << endl;
@@ -53,11 +56,12 @@ int main()
       exit(1);
    }
 
+  /* Starts reading the input file line by line */
   getline(inputFile, railroad_name);
   getline(inputFile, destination);
-  getline(inputFile, tempStr);
-  numberOfCars = stoi(tempStr); // throws run-time error here: "std::stoi no conversion"
-  getline(inputFile, tempStr);
+  getline(inputFile, tempStr); // puts the int numberOfCars to a temporary string to be converted
+  numberOfCars = stoi(tempStr);
+  getline(inputFile, tempStr); // puts the float current_price to a temporary string to be converted
   current_price = stof(tempStr);
 
   /* Calculations */
@@ -65,15 +69,16 @@ int main()
   valueOfShipment = totalWeightOfCoal * current_price;
   total_surcharge = valueOfShipment * current_surcharge;
 
+  /* Starts the write process to the output file */
   outputFile << "KERBAA & M COAL TRAIN REPORT - " << username << endl;
   outputFile << "\nRailroad Name: " << railroad_name << endl;
   outputFile << "Destination: " << destination << endl;
-  outputFile << "\nNumber of Ore Cars: " << numberOfCars << endl;
-  outputFile << "Total Weight of Coal: " << totalWeightOfCoal << " short tons" << endl;
-  outputFile << "Current Cost per Short Ton: $" << current_price << endl;
-  outputFile << "Total Value of Shipment: $" << valueOfShipment << endl;
-  outputFile << "Current Surcharge: " << (current_surcharge * 100) << "%" << endl;
-  outputFile << "\nTotal Surcharge (Est): $" << total_surcharge << endl;
+  outputFile << setw(45) << left << setfill('.') << "\nNumber of Ore Cars: " << right << numberOfCars << endl;
+  outputFile << setw(45) << left << setfill('.') << "Total Weight of Coal: " << showpoint << setprecision(6) << right << totalWeightOfCoal << " short tons" << endl;
+  outputFile << setw(45) << left << setfill('.') << "Current Cost per Short Ton: " << setprecision(4) << right << "$" << current_price << endl;
+  outputFile << setw(45) << left << setfill('.') << "Total Value of Shipment: " << showpoint << setprecision(8) << right << "$" << valueOfShipment << endl;
+  outputFile << setw(45) << left << setfill('.') << "Current Surcharge: " << setprecision(2) << right << (current_surcharge * 100) << "%" << endl;
+  outputFile << setw(45) << left << setfill('.') << "\nTotal Surcharge (Est): " << setprecision(6) << right << "$" << total_surcharge << endl;
 
   inputFile.close();
   outputFile.close();
