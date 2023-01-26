@@ -48,7 +48,7 @@ int main()
   getline(inputFile, railroad_name);
   getline(inputFile, destination);
   getline(inputFile, tempStr);
-  numberOfCars = stoi(tempStr);
+  numberOfCars = stoi(tempStr); // throws run-time error here: "std::stoi no conversion"
   getline(inputFile, tempStr);
   current_price = stof(tempStr);
 
