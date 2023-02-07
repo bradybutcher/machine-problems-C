@@ -74,7 +74,7 @@ int main()
   {
     if (inputFile.eof()) break;
     
-    // read file here
+    // output file here
     outputFile << setw(col0) << right << setfill('0') << time << setfill(' '); // fills leading zeros in 'time' output (if any needed)
     outputFile << setw(col1 - col0) << right << setfill(' ') << " "; // makes the column in between time and duration even with the rest
     outputFile << setw(col2) << left << duration;
@@ -93,7 +93,7 @@ int main()
       if (time <= dayCall || time >= nightCall) // all night calls are free
         {
           outputFile << setw(col5) << left << "Free" << endl;
-            callCost = 0;
+          callCost = 0;
         } else {
           outputFile << setw(col5) << left << setprecision(4) << callCost << endl; // displays call cost if it is a day call
         }
