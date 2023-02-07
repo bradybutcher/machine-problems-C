@@ -65,22 +65,21 @@ int main()
   col0 = 4, col1 = 15, col2 = 15, col3 = 15, col4 = 15, col5 = 15; // sets column widths
 
   outputFile << "Cell Provider Bill - " << name << "\n" << endl; // title
+  outputFile << "Standard Base Rate: $" << monthlyRate << "\n" << endl; // base rate
   outputFile << setw(col1) << left << cell1 << setw(col2) << left << cell2 << setw(col3) << left << cell3 << setw(col4) << left << cell4 << setw(col5) << left << cell5 << "\n"; // prints column titles
   outputFile << setw(col0 + col1 + col2 + col3 + col4 + col5) << setfill('-') << "" << endl;
 
 
-  do // stays in the loop until the pointer reaches the end of the file
+  while (inputFile >> time >> duration >> callType) // stays in the loop until the pointer reaches the end of the file
   {
     if (inputFile.eof()) break;
     
     // read file here
-    inputFile >> time;
     outputFile << setw(col0) << right << setfill('0') << time << setfill(' '); // fills leading zeros in 'time' output (if any needed)
-    inputFile >> duration;
     outputFile << setw(col1 - col0) << right << setfill(' ') << " "; // makes the column in between time and duration even with the rest
     outputFile << setw(col2) << left << duration;
-    inputFile >> callType;
     outputFile << setw(col3) << left << callType;
+
     if (time >= dayCall && time <= nightCall) // if it is a day call, increase the minutes used, otherwise do nothing
     {
       minUsed += duration;
@@ -94,6 +93,7 @@ int main()
       if (time <= dayCall || time >= nightCall) // all night calls are free
         {
           outputFile << setw(col5) << left << "Free" << endl;
+            callCost = 0;
         } else {
           outputFile << setw(col5) << left << setprecision(4) << callCost << endl; // displays call cost if it is a day call
         }
@@ -114,11 +114,12 @@ int main()
           outputFile << setw(col5) << left << setprecision(4) << callCost << endl; // displays call cost after determining whether the call was local (A) or long-distance (L)
         } else if (time <= dayCall || time >= nightCall) { // checks if the call was placed at night, if so then there was no charge
             outputFile << setw(col5) << left << "Free" << endl;
+            callCost = 0;
           }
       }
     
     totalCost += callCost; // adding the total cost during iteration
-  } while (inputFile);
+  } 
 
   outputFile << fixed << setprecision(2) << "\nTotal Month Cost: $" << totalCost + monthlyRate << endl;
 

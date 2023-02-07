@@ -1,5 +1,7 @@
 Cell Provider Bill - Brady Butcher
 
+Standard Base Rate: $39.99
+
 Time           Duration       Call Type      Minutes Used   Cost           
 -------------------------------------------------------------------------------
 1100           30             L              30             0              
@@ -13,6 +15,5 @@ Time           Duration       Call Type      Minutes Used   Cost
 1730           10             L              245            31.05          
 1759           5              A              250            14.5           
 0001           3              A              250            Free           
-0001           3              A              250            Free           
 
-Total Month Cost: $143.39
+Total Month Cost: $114.39
