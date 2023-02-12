@@ -1,0 +1,76 @@
+The Number 12 Is An Abundant Number
+The sum of the proper divisors is 16 which is greater than 12
+The proper divisors are: 1 2 3 4 6 
+There are 5 divisors for the number 12
+
+
+The Number 18 Is An Abundant Number
+The sum of the proper divisors is 21 which is greater than 18
+The proper divisors are: 1 2 3 6 9 
+There are 5 divisors for the number 18
+
+
+The Number 20 Is An Abundant Number
+The sum of the proper divisors is 22 which is greater than 20
+The proper divisors are: 1 2 4 5 10 
+There are 5 divisors for the number 20
+
+
+The Number 24 Is An Abundant Number
+The sum of the proper divisors is 36 which is greater than 24
+The proper divisors are: 1 2 3 4 6 8 12 
+There are 7 divisors for the number 24
+
+
+The Number 30 Is An Abundant Number
+The sum of the proper divisors is 42 which is greater than 30
+The proper divisors are: 1 2 3 5 6 10 15 
+There are 7 divisors for the number 30
+
+
+The Number 36 Is An Abundant Number
+The sum of the proper divisors is 55 which is greater than 36
+The proper divisors are: 1 2 3 4 6 9 12 18 
+There are 8 divisors for the number 36
+
+
+The Number 40 Is An Abundant Number
+The sum of the proper divisors is 50 which is greater than 40
+The proper divisors are: 1 2 4 5 8 10 20 
+There are 7 divisors for the number 40
+
+
+The Number 42 Is An Abundant Number
+The sum of the proper divisors is 54 which is greater than 42
+The proper divisors are: 1 2 3 6 7 14 21 
+There are 7 divisors for the number 42
+
+
+The Number 48 Is An Abundant Number
+The sum of the proper divisors is 76 which is greater than 48
+The proper divisors are: 1 2 3 4 6 8 12 16 24 
+There are 9 divisors for the number 48
+
+
+The Number 54 Is An Abundant Number
+The sum of the proper divisors is 66 which is greater than 54
+The proper divisors are: 1 2 3 6 9 18 27 
+There are 7 divisors for the number 54
+
+
+The Number 56 Is An Abundant Number
+The sum of the proper divisors is 64 which is greater than 56
+The proper divisors are: 1 2 4 7 8 14 28 
+There are 7 divisors for the number 56
+
+
+The Number 60 Is An Abundant Number
+The sum of the proper divisors is 108 which is greater than 60
+The proper divisors are: 1 2 3 4 5 6 10 12 15 20 30 
+There are 11 divisors for the number 60
+
+
+The smallest natural number with 6 divisors is: 64
+The proper divisors of 64 are: 1 2 4 8 16 32 
+
+The sum of the divisors is: 63
