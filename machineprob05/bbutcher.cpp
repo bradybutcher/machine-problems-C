@@ -6,10 +6,10 @@ using namespace std;
 int devCol = 60;
 
 /* Function Prototypes */
+void title(char);
 int readAccountNo();
 int readBalanceAmount();
 void printAllInfo(int, int, int, int, float, float, float, float);
-
 
 int main()
 {
@@ -18,26 +18,29 @@ int main()
 
   int custAcc1, custAcc2, custAcc3, custAcc4;
   float custBal1, custBal2, custBal3, custBal4;
-  
 
-  /* Displays name, section, and due date as header */
-  for (int i = 1; i < 3; i++) {
-    if (i == 2) {
-      cout << "Name: Brady Butcher\tSection: 01\tDue Date: 02.19.2023" << endl;
-    }
-    cout << setw(devCol) << setfill('*') << "" << endl;
-  }
+  title('*');
 
-  
-  for (int cus = 1; cus <= 4; cus++) {
+  for (int cus = 1; cus <= 4; cus++)
+  {
     cout << "Enter Customer " << cus << ":" << endl;
     readAccountNo();
     readBalanceAmount();
   }
-
-
 }
 
+void title(char c)
+{
+  /* Displays name, section, and due date as header */
+  for (int i = 1; i < 3; i++)
+  {
+    if (i == 2)
+    {
+      cout << "Name: Brady Butcher\tSection: 01\tDue Date: 02.19.2023" << endl;
+    }
+    cout << setw(devCol) << setfill(c) << "" << endl;
+  }
+}
 
 int readAccountNo()
 {
@@ -45,8 +48,9 @@ int readAccountNo()
 
   cout << "Enter Account Number: ";
   cin >> accNum;
-  if (accNum < 10000 && accNum > 0) {
-      return accNum;
+  if (accNum < 10000 && accNum > 0)
+  {
+    return accNum;
   }
   cout << "Please enter an account number between 0 and 10000";
   return 0;
@@ -54,15 +58,18 @@ int readAccountNo()
 
 int readBalanceAmount()
 {
-  float openBal = 0;
+  float openBal = 1;
 
   cout << "Enter Opening Balance: ";
-  cin >> openBal;  
+  cin >> openBal;
+  if (openBal < 0 || openBal > 200000)
+  {
+    cout << "Please enter an opening balance between $1 and $200,000" << endl;
+  }
 
   return openBal;
 }
 
 void printAllInfo(int acc1, int acc2, int acc3, int acc4, float bal1, float bal2, float bal3, float bal4)
 {
-  
 }
