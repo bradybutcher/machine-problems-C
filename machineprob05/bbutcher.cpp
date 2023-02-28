@@ -28,9 +28,12 @@ int main()
     cout << setw(devCol) << setfill('*') << "" << endl;
   }
 
-  custAcc1 = readAccountNo();
-  cout << custAcc1 << endl;
-  cout << readBalanceAmount() << endl;
+  
+  for (int cus = 1; cus <= 4; cus++) {
+    cout << "Enter Customer " << cus << ":" << endl;
+    readAccountNo();
+    readBalanceAmount();
+  }
 
 
 }
