@@ -1,3 +1,15 @@
+/*
+ *
+ * Name: Brady Butcher
+ * CPS 171, Section 01
+ * Due Date: 03.08.2023
+ *
+ * Description:
+ * This program is a bank account management system. It allows the user to create up to 4 customer accounts,
+ * deposit and withdraw money, and view account information. The program will continue to run until the user
+ * chooses to exit.
+ */
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
