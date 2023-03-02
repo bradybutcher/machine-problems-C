@@ -41,6 +41,7 @@ void menu();
 void tryMenu();
 void printAllInfo(int, int, int, int, float, float, float, float);
 
+/* Main Function */
 int main()
 {
   int accountNum;
