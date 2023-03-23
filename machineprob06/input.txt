@@ -6,13 +6,8 @@ U	I	T	S	Y	M	L	H
 T	R	A	I	N	J	H	O
 J	B	R	K	E	W	D	S
 A	K	Z	I	Q	P	F	T
-
 Fit
-
 Pet 
-
 Cat
-
 Ghost
-
 Dog
