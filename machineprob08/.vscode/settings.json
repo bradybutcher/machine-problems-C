@@ -3,5 +3,12 @@
         "string": "cpp",
         "filesystem": "cpp",
         "iosfwd": "cpp"
-    }
+    },
+    "task.slowProviderWarning": true,
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c23",
+    "C_Cpp.commentContinuationPatterns": [
+    
+        "/**"
+    ]
 }

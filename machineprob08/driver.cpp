@@ -7,14 +7,25 @@
 using namespace std;
 
 ifstream infile;
+ofstream outfileTeam;
 ofstream outfile;
 
-TeamClass team;
-PlayerClass player;
+TeamClass thisTeam;
+PlayerClass thisPlayer;
 
-int numPlayers = 11;
+int PlayerCount[4] = {0};
 
 void setTeams();
+void outputToTeamsFile();
+
+enum teams
+{
+    argentine,
+    brazil,
+    france,
+    portugal,
+    invalid
+};
 
 int main()
 {
@@ -25,6 +36,12 @@ int main()
         cout << "Error opening input file" << endl;
         return 1;
     }
+    outfileTeam.open("output.txt");
+    if (!outfileTeam)
+    {
+        cout << "Error opening teams output file" << endl;
+        return 1;
+    }
     outfile.open("output.txt");
     if (!outfile)
     {
@@ -32,9 +49,8 @@ int main()
         return 1;
     }
 
-    /* Set vars */
-    team.numPlayers = numPlayers;
     setTeams();
+    // outputToTeamsFile();
     return 0;
 }
 
@@ -43,13 +59,16 @@ void setTeams()
     string tName, pFName, pLName;
     int pNum, pPoints;
 
-    while (!infile.eof())
+    while (infile >> tName >> pNum >> pFName >> pLName >> pPoints)
     {
-        infile >> tName >> pNum >> pFName >> pLName >> pPoints;
-        team.setTeamName(tName);
-         //player.setPlayerNumber(pNum);
-         //player.setPlayerFName(pFName);
-         //player.setPlayerLName(pLName);
-         //player.setPlayerPoints(pPoints);
+        thisTeam.setTeamName(tName);
+        thisPlayer.setPlayerNumber(pNum);
+        thisPlayer.setPlayerFName(pFName);
+        thisPlayer.setPlayerLName(pLName);
+        thisPlayer.setPlayerPoints(pPoints);
     }
+}
+
+void outputToTeamsFile()
+{
 }
