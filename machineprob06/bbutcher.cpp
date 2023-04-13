@@ -186,7 +186,7 @@ string findWordsInArray()
     {
         word = wordList.substr(0, wordList.find(' '));
         wordList = wordList.substr(wordList.find(' ') + 1);
-        cout << word << endl;
+        std::cout << word << endl;
     }
 
     for (int i = 0; i < arrSize; i++)
