@@ -19,6 +19,6 @@ public:
     void setPlayerPoints(int p);
     std::string getPlayerFName();
     std::string getPlayerLName();
-    std::string getPlayerNumber();
-    std::string getPlayerPoints();
+    int getPlayerNumber();
+    int getPlayerPoints();
 };

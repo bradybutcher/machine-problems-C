@@ -27,3 +27,23 @@ void PlayerClass::setPlayerName()
 {
     playerName = playerFName + " " + playerLName;
 }
+
+string PlayerClass::getPlayerFName()
+{
+    return playerFName;
+}
+
+string PlayerClass::getPlayerLName()
+{
+    return playerLName;
+}
+
+int PlayerClass::getPlayerNumber()
+{
+    return playerNumber;
+}
+
+int PlayerClass::getPlayerPoints()
+{
+    return playerPoints;
+}
