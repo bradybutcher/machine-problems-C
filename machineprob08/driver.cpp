@@ -91,6 +91,8 @@ void setTeams()
         {
             PlayerCount[portugal]++;
         }
+
+        outfile << "Team: " << thisTeam.getTeamName() << endl;
     }
 }
 
