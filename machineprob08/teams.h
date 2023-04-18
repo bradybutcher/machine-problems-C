@@ -8,12 +8,15 @@ class TeamClass
 {
 private:
     std::string teamName;
-    std::string teamPoints;
-    int numPlayers[11];
+    int teamPoints;
+    PlayerClass Player[11];
 
 public:
     void setTeamName(std::string n);
-    void setTeamPoints();
+    void setTeamPoints(int points);
     string getTeamName();
-    string getTeamPoints();
+    int getTeamPoints();
+    PlayerClass setPlayer(PlayerClass p, int i);
+    PlayerClass getPlayer(int i);
+
 };

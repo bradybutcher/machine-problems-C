@@ -28,14 +28,9 @@ void PlayerClass::setPlayerName()
     playerName = playerFName + " " + playerLName;
 }
 
-string PlayerClass::getPlayerFName()
+string PlayerClass::getPlayerName()
 {
-    return playerFName;
-}
-
-string PlayerClass::getPlayerLName()
-{
-    return playerLName;
+    return playerName;
 }
 
 int PlayerClass::getPlayerNumber()

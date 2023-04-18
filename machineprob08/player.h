@@ -9,7 +9,6 @@ private:
     std::string playerName;
     int playerNumber;
     int playerPoints;
-    int numPlayers[11];
 
 public:
     void setPlayerFName(std::string f);
@@ -17,8 +16,7 @@ public:
     void setPlayerName();
     void setPlayerNumber(int n);
     void setPlayerPoints(int p);
-    std::string getPlayerFName();
-    std::string getPlayerLName();
+    std::string getPlayerName();
     int getPlayerNumber();
     int getPlayerPoints();
 };

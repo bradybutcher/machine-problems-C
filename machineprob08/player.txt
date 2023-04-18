@@ -19,7 +19,7 @@ BRAZIL 7 Thiago Silva 0
 BRAZIL 8 Antony Silva 2
 BRAZIL 9 Gabriel Jesus 4
 BRAZIL 10 Gabriel Martinelli 8
-BRAZIL 11 Neymar Martinez   10
+BRAZIL 11 Neymar Martinez 10
 FRANCE 1 Benjamin Lecomte 5
 FRANCE 2 Alban Lafont 4
 FRANCE 3 Alphonse Reola 2

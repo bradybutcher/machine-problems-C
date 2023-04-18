@@ -1,6 +1,5 @@
 #include "teams.h"
 
-
 using namespace std;
 
 void TeamClass::setTeamName(string name)
@@ -8,9 +7,8 @@ void TeamClass::setTeamName(string name)
     teamName = name;
 }
 
-void TeamClass::setTeamPoints()
+void TeamClass::setTeamPoints(int points)
 {
-    string points;
     teamPoints = points;
 }
 
@@ -19,8 +17,18 @@ string TeamClass::getTeamName()
     return teamName;
 }
 
-string TeamClass::getTeamPoints()
+int TeamClass::getTeamPoints()
 {
     return teamPoints;
 }
 
+PlayerClass TeamClass::setPlayer(PlayerClass p, int i)
+{
+    Player[i] = p;
+    return Player[i];
+}
+
+PlayerClass TeamClass::getPlayer(int i)
+{
+    return Player[i];
+}

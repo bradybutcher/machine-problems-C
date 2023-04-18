@@ -1,0 +1,88 @@
+TEAM #1
+Team's Name: ARGENTINE
+Team's Total Points: 35
+
+Players of Team #1: ARGENTINE
+
+Player Name         Player Number  Player Points  
+**************************************************
+Lionel Messi        1              16             
+Paulo Dybala        2              2              
+Julian Alvarez      3              0              
+Emiliano Martinez   4              1              
+Lisandro Martinez   5              3              
+Rodrigo DePaul      6              4              
+Angel DiMaria       7              5              
+Lautaro Martinez    8              3              
+Alexis Mac          9              0              
+Enzo Fernandez      10             0              
+Christian Romero    11             1              
+
+TEAM #2
+Team's Name: BRAZIL
+Team's Total Points: 41
+
+Players of Team #2: BRAZIL
+
+Player Name         Player Number  Player Points  
+**************************************************
+Alex Telles         1              2              
+Bremer Juan         2              3              
+Dani Alves          3              6              
+Danilo Mati         4              5              
+Eder Militao        5              1              
+Marquinhos James    6              0              
+Thiago Silva        7              0              
+Antony Silva        8              2              
+Gabriel Jesus       9              4              
+Gabriel Martinelli  10             8              
+Neymar Martinez     11             10             
+
+TEAM #3
+Team's Name: FRANCE
+Team's Total Points: 45
+
+Players of Team #3: FRANCE
+
+Player Name         Player Number  Player Points  
+**************************************************
+Benjamin Lecomte    1              5              
+Alban Lafont        2              4              
+Alphonse Reola      3              2              
+Steve Mandanda      4              0              
+Benoit Costil       5              1              
+Mike Maignan        6              8              
+William Saliba      7              9              
+Axel Disasi         8              3              
+Ibrahima Konate     9              2              
+Raphael Varane      10             7              
+Adil Rami           11             4              
+
+TEAM #4
+Team's Name: PORTUGAL
+Team's Total Points: 55
+
+Players of Team #4: PORTUGAL
+
+Player Name         Player Number  Player Points  
+**************************************************
+Diogo Dalot         1              4              
+Joao Cancelo        2              8              
+Nuno Mendes         3              3              
+Raphael Guerreiro   4              2              
+Ruben Dias          5              1              
+Andre Silva         6              5              
+Cristiano Ronaldo   7              14             
+Goncalo Ramos       8              8              
+Joao Felix          9              7              
+Rafael Leao         10             2              
+Ricardo Horta       11             1              
+
+The player with the most points on Team #1 is Lionel Messi
+The player with the most points on Team #2 is Neymar Martinez
+The player with the most points on Team #3 is William Saliba
+The player with the most points on Team #4 is Cristiano Ronaldo
+
+The top two teams with the most points are:
+PORTUGAL with 55 points
+FRANCE with 45 points
