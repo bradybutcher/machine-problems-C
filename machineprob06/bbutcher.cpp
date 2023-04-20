@@ -6,214 +6,152 @@
  * This program will read a table of characters from an input file, fill it into a 2-dimensional 8 by 8 array, and finds the words in the table using a word bank provided in the input file. The program will then output the words found in the table to an output file.
  */
 
-/*#include <iostream>
-#include <fstream>
-#include <string>
-#include <array>
-
-using namespace std;
-
-const int arrSize = 8;
-char charArray[arrSize][arrSize];
-string findWords();
-bool checkWord(int i, int j, int di, int dj, const string &word);
-
-string ifile_path("input.txt");
-string ofile_path("output.txt");
-
-ifstream inputFile;
-ofstream outputFile;
-
-int main()
-{
-    inputFile.open(ifile_path);
-    if (!inputFile)
-    { // file couldn't be opened
-        std::cerr << "Error: Input file could not be opened" << endl;
-        exit(1);
-    }
-    outputFile.open(ofile_path);
-    if (!outputFile)
-    { // file couldn't be opened
-        std::cerr << "Error: Output file could not be opened" << endl;
-        exit(1);
-    }
-
-    // Read in the table of characters
-    for (int i = 0; i < arrSize; i++)
-    {
-        for (int j = 0; j < arrSize; j++)
-        {
-            inputFile >> charArray[i][j];
-        }
-    }
-}
-
-bool checkWord(int i, int j, int di, int dj, const string &word)
-{
-    for (int k = 0; k < word.size(); k++)
-    {
-        int ni = i + k * di, nj = j + k * dj;
-        if (ni < 0 || ni >= arrSize || nj < 0 || nj >= arrSize || charArray[ni][nj] != word[k])
-            return false;
-    }
-    return true;
-}
-
-string findWords()
-{
-    string word;
-    string wordFound;
-    string wordBank;
-    int wordCount = 0;
-
-    // Read in the word bank
-    while (inputFile >> word)
-    {
-        wordCount++;
-        for (int i = 0; i < arrSize; i++)
-        {
-            for (int j = 0; j < arrSize; j++)
-            {
-                for (int di = -1; di <= 1; di++)
-                {
-                    for (int dj = -1; dj <= 1; dj++)
-                    {
-                        if (di == 0 && dj == 0)
-                            continue;
-                        if (checkWord(i, j, di, dj, word))
-                        {
-                            wordFound += word + " ";
-                            break;
-                        }
-                    }
-                    if (!wordFound.empty())
-                        break;
-                }
-                if (!wordFound.empty())
-                    break;
-            }
-            if (!wordFound.empty())
-                break;
-        }
-    }
-
-    return wordFound;
-}*/
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <array>
+#include <vector>
 
 using namespace std;
 
-const int arrSize = 8;
-char charArray[arrSize][arrSize];
+const int ROWS = 8;
+const int COLS = 8;
 
-void initialRead();
-string wordBank();
-string findWordsInArray();
-bool checkWord(int i, int j, int di, int dj, const string &word);
+// Define directions as integer offsets
+const int HORIZONTAL[2] = {0, 1};
+const int VERTICAL[2] = {1, 0};
+const int DIAGONAL[2] = {1, 1};
+const int DIAGONAL_INVERSE[2] = {-1, 1};
 
-string ifile_path("input.txt");
-string ofile_path("output.txt");
-
-ofstream outputFile(ofile_path);
-ifstream inputFile(ifile_path);
-
-int main()
+// Function to check if a word can be found in a given direction
+bool checkDirection(char table[ROWS][COLS], int row, int col, string word, const int *direction)
 {
-    initialRead();
-    string wordsFound = findWordsInArray();
-    outputFile << wordsFound;
-    return 0;
-}
-
-void initialRead()
-{
-    // Read in the table of characters
-    for (int i = 0; i < arrSize; i++)
+    int wordLength = word.length();
+    for (int i = 0; i < wordLength; i++)
     {
-        for (int j = 0; j < arrSize; j++)
+        int currentRow = row + i * direction[0];
+        int currentCol = col + i * direction[1];
+        if (currentRow < 0 || currentRow >= ROWS || currentCol < 0 || currentCol >= COLS || table[currentRow][currentCol] != word[i])
         {
-            inputFile >> charArray[i][j];
-        }
-    }
-}
-
-string wordBank()
-{
-    string word;
-    string wordBank;
-    int wordCount = 0;
-
-    // Read in the word bank
-    while (inputFile >> word)
-    {
-        wordCount++;
-        wordBank += word + " ";
-    }
-    return wordBank;
-}
-
-bool checkWord(int i, int j, int di, int dj, const string &word)
-{
-    for (int k = 0; k < word.size(); k++)
-    {
-        int ni = i + k * di, nj = j + k * dj;
-        if (ni < 0 || ni >= arrSize || nj < 0 || nj >= arrSize || charArray[ni][nj] != word[k])
             return false;
+        }
     }
     return true;
 }
 
-string findWordsInArray()
+// Function to find a word in the table
+vector<int> findWord(char table[ROWS][COLS], string word)
 {
-    string wordList = wordBank();
-    string wordFound;
-    string word;
-    int wordCount = 0;
-
-    for (int i = 0; i < wordList.size(); i++)
+    vector<int> result;
+    int wordLength = word.length();
+    for (int row = 0; row < ROWS; row++)
     {
-        if (wordList[i] == ' ')
+        for (int col = 0; col < COLS; col++)
         {
-            wordCount++;
-        }
-    }
-
-    for (int i = 0; i < wordCount; i++)
-    {
-        word = wordList.substr(0, wordList.find(' '));
-        wordList = wordList.substr(wordList.find(' ') + 1);
-        std::cout << word << endl;
-    }
-
-    for (int i = 0; i < arrSize; i++)
-    {
-        for (int j = 0; j < arrSize; j++)
-        {
-            for (int di = -1; di <= 1; di++)
+            // Check horizontal direction
+            if (checkDirection(table, row, col, word, HORIZONTAL))
             {
-                for (int dj = -1; dj <= 1; dj++)
-                {
-                    if (di == 0 && dj == 0)
-                        continue;
-                    if (checkWord(i, j, di, dj, word))
-                    {
-                        wordFound += word + " ";
-                        break;
-                    }
-                }
-                if (!wordFound.empty())
-                    break;
+                result.push_back(row);
+                result.push_back(col);
+                result.push_back(0); // 0 for horizontal
+                return result;
             }
-            if (!wordFound.empty())
-                break;
+            // Check vertical direction
+            if (checkDirection(table, row, col, word, VERTICAL))
+            {
+                result.push_back(row);
+                result.push_back(col);
+                result.push_back(1); // 1 for vertical
+                return result;
+            }
+            // Check diagonal direction
+            if (checkDirection(table, row, col, word, DIAGONAL))
+            {
+                result.push_back(row);
+                result.push_back(col);
+                result.push_back(2); // 2 for diagonal
+                return result;
+            }
+            // Check diagonal inverse direction
+            if (checkDirection(table, row, col, word, DIAGONAL_INVERSE))
+            {
+                result.push_back(row);
+                result.push_back(col);
+                result.push_back(3); // 3 for diagonal inverse
+                return result;
+            }
         }
-        if (!wordFound.empty())
-            break;
+    }
+    // Word not found
+    return result;
+}
+
+int main()
+{
+    // Open input file
+    ifstream inputFile("input.txt");
+    if (!inputFile)
+    {
+        cerr << "Error: input file could not be opened." << endl;
+        return 1;
+    }
+    ofstream outputFile("output.txt");
+    if (!outputFile)
+    {
+        cerr << "Error: output file could not be opened." << endl;
+        return 1;
     }
 
-    return wordFound;
+    // Read table from input file into 2D array
+    char table[ROWS][COLS];
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            inputFile >> table[row][col];
+        }
+    }
+
+    // Read words from input file and find them in the table
+    int col1 = 15;
+    int col2 = 15;
+    int col3 = 15;
+    int col4 = 15;
+    outputFile << left << setfill(' ') << setw(col1) << "Word" << setw(col2) << "Row" << setw(col3) << "Column" << setw(col4) << "Direction" << endl;
+    outputFile << left << setfill('-') << setw(col1 + col2 + col3 + col4) << "" << endl;
+    string word;
+    while (inputFile >> word)
+    {
+        vector<int> result = findWord(table, word);
+        outputFile << left << setfill(' ') << setw(col1) << word;
+        // Print location and direction of word if found, or indicate that the word could not be found
+        if (result.empty())
+        {
+            outputFile << left << setfill(' ') << setw(col2 + col3) << " " << setw(col4) << "Not found" << endl;
+        }
+        else
+        {
+            outputFile << left << setfill(' ') << setw(col2) << result[0] + 1 << left << setw(col3) << result[1] + 1;
+            switch (result[2])
+            {
+            case 0:
+                outputFile << left << setw(col4) << "Horizontal" << endl;
+                break;
+            case 1:
+                outputFile << left << setw(col4) << "Vertical" << endl;
+                break;
+            case 2:
+                outputFile << left << setw(col4) << "Diagonal" << endl;
+                break;
+            case 3:
+                outputFile << left << setw(col4) << "Diagonal inverse" << endl;
+                break;
+            }
+        }
+    }
+
+    // Close input file
+    inputFile.close();
+    outputFile.close();
+
+    return 0;
 }

@@ -1,0 +1,7 @@
+Word           Row            Column         Direction      
+------------------------------------------------------------
+FIT            4              3              Horizontal     
+PET            2              5              Diagonal       
+CAT            3              1              Diagonal       
+GHOST          4              8              Vertical       
+DOG                                          Not found      
